@@ -23,7 +23,7 @@ namespace NatashaFunctionUT.Domain.Plugin
 
             result = PluginAssertHelper.GetResult(path1, path2, AssemblyCompareInformation.None);
             Assert.Equal("Json:12.0.0.0;Dapper:1.60.0.0;IPluginBase:1.0.0.0;Self:1.0.0.0", result.r1);
-            Assert.Equal("FileLoadException", result.r2);
+            Assert.Equal("FileNotFoundException", result.r2);
 
             result = PluginAssertHelper.GetResult(path1, path2, AssemblyCompareInformation.UseHighVersion);
             Assert.Equal("Json:12.0.0.0;Dapper:1.60.0.0;IPluginBase:1.0.0.0;Self:1.0.0.0", result.r1);

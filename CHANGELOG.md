@@ -1,4 +1,4 @@
-<!--
+﻿<!--
 This project adheres to [Semantic Versioning](https://semver.org).
 Note: In this file, do not use the hard wrap in the middle of a sentence for compatibility with GitHub comment style markdown rendering.
 
@@ -73,35 +73,47 @@ Example:
 
 ### DotNetCore.Natasha.CSharp.HotExecutor.Wrapper _ v9.0.0.8:
 - 跟随 Compiler 升级依赖.
+
+### DotNetCore.Natasha.DynamicLoad.Base _ v10.0.0.1:
+- 升级依赖.
+
+### DotNetCore.Natasha.CSharp.Compiler.Domain _ v10.0.0.1:
+- 升级依赖.
+
+### DotNetCore.Natasha.Domain _ v10.0.0.1:
+- 升级依赖.
+
+
+### DotNetCore.Natasha.CSharp.Compiler _ v10.1.2.2:
+- 升级依赖.
+- 优化编译错误输出.
+- 优化语法错误输出.
+- 优化编译日志输出.
+- 增加 GetFullLog 方法获取完整日志.
+
+### DotNetCore.Natasha.CSharp.Extension.Codecov _ v10.0.0.3:
+- 跟随 DotNetCore.Natasha.CSharp.Compiler 新版本升级依赖.
+
+### DotNetCore.Natasha.CSharp.Extension.Ambiguity _ v10.0.0.3:
+- 跟随 DotNetCore.Natasha.CSharp.Compiler 新版本升级依赖.
+
+### DotNetCore.Natasha.CSharp.Extension.MethodCreator _ v10.0.0.3:
+- 跟随 DotNetCore.Natasha.CSharp.Compiler 新版本升级依赖.
+
+### DotNetCore.Natasha.CSharp.Extension.CompileDirector _ v10.0.0.3:
+- 跟随 DotNetCore.Natasha.CSharp.Compiler 新版本升级依赖.
+
+### DotNetCore.Natasha.CSharp.HotExecutor _ v10.0.0.3:
+- 跟随 DotNetCore.Natasha.CSharp.Compiler 新版本升级依赖.
 -->
 
-## [9.0.0.3] - 2024-12-09 
+## [10.0.0.4] - 2026-03-22 
 
-### DotNetCore.Natasha.CSharp.Compiler _ v9.0.0.4:
-- 修复 targets 文件.
+### DotNetCore.Natasha.CSharp.Extension.CompileDirector _ v10.0.0.3:
+- 跟随 DotNetCore.Natasha.CSharp.Compiler 新版本升级依赖.
 
-### DotNetCore.Natasha.CSharp.Template.Core _ v9.0.0.4:
-- 跟随 Compiler 升级依赖.
+### DotNetCore.Natasha.CSharp.HotExecutor _ v10.0.0.3:
+- 跟随 DotNetCore.Natasha.CSharp.Compiler 新版本升级依赖.
 
-### DotNetCore.Natasha.CSharp.Extension.Codecov _ v9.0.0.4:
-- 跟随 Compiler 升级依赖.
-
-### DotNetCore.Natasha.CSharp.Extension.Ambiguity _ v9.0.0.4:
-- 跟随 Compiler 升级依赖.
-
-### DotNetCore.Natasha.CSharp.Extension.MethodCreator _ v9.0.0.4:
-- 跟随 Compiler 升级依赖.
-
-### DotNetCore.Natasha.CSharp.Extension.CompileDirector _ v9.0.0.4:
-- 跟随 Compiler 升级依赖.
-
-### DotNetCore.Natasha.CSharp.HotExecutor _ v9.0.0.9:
-- 跟随 Compiler 升级依赖.
-
-### DotNetCore.Natasha.CSharp.HotExecutor.Wrapper _ v9.0.0.9:
-- 跟随 Compiler 升级依赖.
-
-
-
-
-
+### DotNetCore.Natasha.CSharp.HotExecutor.Wrapper _ v10.0.0.3:
+- 跟随 Natasha 升级依赖.

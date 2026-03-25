@@ -16,7 +16,7 @@ namespace NatashaFunctionUT.Compile
             try
             {
                 AssemblyCSharpBuilder builder = new();
-                builder.UseNewDomain(name);
+                builder.UseNewLoadContext(name);
                 currentName = builder.Domain.Name;
                 builder.ConfigCompilerOption(opt => opt.WithLowerVersionsAssembly());
                 var pAssembly = builder.Domain.LoadPlugin(path);

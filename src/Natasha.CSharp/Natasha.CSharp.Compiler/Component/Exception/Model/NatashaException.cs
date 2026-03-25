@@ -7,7 +7,13 @@ using System.Collections.Generic;
 [Serializable]
 public sealed class NatashaException : Exception
 {
-
+    public NatashaException(string message,Exception innerException) : base(message, innerException)
+    {
+        Formatter = string.Empty;
+        Diagnostics = new List<Diagnostic>();
+        ErrorKind = NatashaExceptionKind.None;
+        CompileMessage = string.Empty;
+    }
     public NatashaException(string message) : base(message)
     {
         Formatter = string.Empty;

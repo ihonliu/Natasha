@@ -1,33 +1,29 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-	<PropertyGroup>
-		<TargetFrameworks>netstandard2.0;</TargetFrameworks>
-		<Description>Natasha 的 C# 版编译器</Description>
-		<PackageId>DotNetCore.Natasha.CSharp.Compiler</PackageId>
-		<PackageReleaseNotes>升级到最新版.</PackageReleaseNotes>
-		<PackageTags>Roslyn;IL;Script;Dynamic;Natasha;NMS;Compiler;</PackageTags>
-		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-		<Version>9.0.0.4</Version>
-		<FileVersion>9.0.0.4</FileVersion>
-		<AssemblyVersion>9.0.0.4</AssemblyVersion>
-	</PropertyGroup>
-	<ItemGroup>
-		<PackageReference Include="Microsoft.Extensions.DependencyModel" Version="9.0.0" />
-		<PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="4.12.0" />
-	</ItemGroup>
-	
-	<ItemGroup>
-	  <ProjectReference Include="..\Natasha.DynamicLoad.Base\Natasha.DynamicLoad.Base.csproj" />
-	</ItemGroup>
-	
-	<ItemGroup>
-	  <Folder Include="targets\" />
-	</ItemGroup>
-<ItemGroup>
-		<None Include="targets\Project.targets" Pack="true" PackagePath="build\netstandard2.0\DotNetCore.Natasha.CSharp.Compiler.targets" />
-		<None Include="targets\Project.targets" Pack="true" PackagePath="buildTransitive\netstandard2.0\DotNetCore.Natasha.CSharp.Compiler.targets" />
-		<None Include="targets\Project.targets" Pack="true" PackagePath="buildMultiTargeting\netstandard2.0\DotNetCore.Natasha.CSharp.Compiler.targets" />
-</ItemGroup>
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;</TargetFrameworks>
+    <Description>Natasha 的 C# 版编译器</Description>
+    <PackageId>DotNetCore.Natasha.CSharp.Compiler</PackageId>
+    <PackageReleaseNotes>升级到最新版.</PackageReleaseNotes>
+    <PackageTags>Roslyn;IL;Script;Dynamic;Natasha;NMS;Compiler;</PackageTags>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Version>10.1.2.2</Version>
+    <FileVersion>10.1.2.2</FileVersion>
+    <AssemblyVersion>10.1.2.2</AssemblyVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyModel" Version="10.0.5" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="5.3.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Natasha.DynamicLoad.Base\Natasha.DynamicLoad.Base.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="targets\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="targets\Jester.Combine.targets" Pack="true" PackagePath="build\netstandard2.0\DotNetCore.Natasha.CSharp.Compiler.targets" />
+    <None Include="targets\Jester.Combine.targets" Pack="true" PackagePath="buildTransitive\netstandard2.0\DotNetCore.Natasha.CSharp.Compiler.targets" />
+    <None Include="targets\Jester.Combine.targets" Pack="true" PackagePath="buildMultiTargeting\netstandard2.0\DotNetCore.Natasha.CSharp.Compiler.targets" />
+  </ItemGroup>
 </Project>
-
-
-

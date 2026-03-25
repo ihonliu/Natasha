@@ -58,9 +58,7 @@ public class A
             builder
                 .UseRandomLoadContext()
                 .UseSmartMode()
-                .ConfigCompilerOption(opt => opt
-                    .AppendCompilerFlag(Natasha.CSharp.Compiler.CompilerBinderFlags.IgnoreAccessibility)
-                    .WithInternalMetadata());
+                .WithPrivateAccess();
 
             string text = $@"
 public class A 

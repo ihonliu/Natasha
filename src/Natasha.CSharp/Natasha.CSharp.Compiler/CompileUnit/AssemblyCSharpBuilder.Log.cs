@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Natasha.CSharp.Extension.Inner;
+using System;
 
 public sealed partial class AssemblyCSharpBuilder
 {
@@ -14,6 +15,15 @@ public sealed partial class AssemblyCSharpBuilder
     {
         LogCompilationEvent = logAction;
         return this;
+    }
+
+    /// <summary>
+    /// 获取完整的编译日志字符串.
+    /// </summary>
+    /// <returns></returns>
+    public NatashaCompilationLog GetFullLog()
+    {
+        return _compilation.GetNatashaLog();
     }
 
 }

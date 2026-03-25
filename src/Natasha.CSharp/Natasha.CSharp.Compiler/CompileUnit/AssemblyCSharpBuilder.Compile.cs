@@ -139,12 +139,25 @@ public sealed partial class AssemblyCSharpBuilder
             }
         }
 
-        var compileResult = _compilation.Emit(
+        EmitResult? compileResult = null;
+        try
+        {
+           compileResult = _compilation.Emit(
            dllStream,
            pdbStream: pdbStream,
            xmlDocumentationStream: xmlStream,
            options: emitOption
            );
+        }
+        catch (System.Exception ex)
+        {
+            dllStream.Dispose();
+            pdbStream?.Dispose();
+            xmlStream?.Dispose();
+            LogCompilationEvent?.Invoke(_compilation.GetNatashaLog());
+            throw _exception = NatashaExceptionAnalyzer.GetCompileException(_compilation, compileResult == null ? [] : compileResult.Diagnostics, ex);
+        }
+
 
         dllStream.Dispose();
         pdbStream?.Dispose();
@@ -192,6 +205,7 @@ public sealed partial class AssemblyCSharpBuilder
     /// <returns>编译成功生成的程序集.</returns>
     public Assembly GetAssembly()
     {
+        _exception = null;
         GetAvailableCompilation();
         if (Domain!.Name != "Default")
         {
@@ -271,16 +285,27 @@ public sealed partial class AssemblyCSharpBuilder
             }
         }
 
-        var compileResult = _compilation.Emit(
-           dllStream,
-           pdbStream: pdbStream,
-           xmlDocumentationStream: xmlStream,
-           options: emitOption
-           );
-        LogCompilationEvent?.Invoke(_compilation.GetNatashaLog());
-        Assembly assembly;
+        EmitResult? compileResult = null;
+        try
+        {
+            compileResult = _compilation.Emit(
+               dllStream,
+               pdbStream: pdbStream,
+               xmlDocumentationStream: xmlStream,
+               options: emitOption
+               );
+                LogCompilationEvent?.Invoke(_compilation.GetNatashaLog());
+        }
+        catch (System.Exception ex)
+        {
+            pdbStream?.Dispose();
+            xmlStream?.Dispose();
+            LogCompilationEvent?.Invoke(_compilation.GetNatashaLog());
+            throw _exception = NatashaExceptionAnalyzer.GetCompileException(_compilation, compileResult==null ? [] : compileResult.Diagnostics, ex);
+        }
 
-        if (compileResult.Success)
+        Assembly assembly;
+        if (compileResult!.Success)
         {
             dllStream.Position = 0;
             assembly = Domain.LoadAssemblyFromStream(dllStream, null);

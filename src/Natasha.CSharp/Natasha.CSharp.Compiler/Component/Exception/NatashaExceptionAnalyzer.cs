@@ -1,5 +1,6 @@
 ﻿using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
+using System;
 using System.Collections.Immutable;
 using System.Linq;
 
@@ -22,24 +23,34 @@ namespace Natasha.CSharp.Compiler.Component.Exception
                     {
                         first = errors[0];
                     }
-                    var exception = new NatashaException(first.GetMessage());
+                    var exception = new NatashaException($"{first.Id} at {first.Location}: {first.GetMessage()}");
                     exception.Diagnostics.AddRange(errors);
                     exception.Formatter = tree.ToString();
                     exception.ErrorKind = NatashaExceptionKind.Syntax;
+                    exception.CompileMessage = $"未到编译阶段就出错了!";
                     return exception;
                 }
             }
             return null;
         }
 
-        internal static NatashaException GetCompileException(CSharpCompilation compilation, ImmutableArray<Diagnostic> errors)
+        internal static NatashaException GetCompileException(CSharpCompilation compilation, ImmutableArray<Diagnostic> errors, System.Exception? innerException = null)
         {
             var first = errors.FirstOrDefault(item=>item.DefaultSeverity == DiagnosticSeverity.Error);
             if (first == null)
             {
                 first = errors[0];
-            }   
-            var exception = new NatashaException(first.GetMessage());
+            }
+            NatashaException exception;
+            if (innerException == null)
+            {
+                exception = new NatashaException($"{first.Id} at {first.Location}: {first.GetMessage()}");
+            }
+            else
+            {
+                exception = new NatashaException($"{first.Id} at {first.Location}: {first.GetMessage()}", innerException);
+            }
+           
             exception.Diagnostics.AddRange(errors);
             if (first.Location.SourceTree != null)
             {
