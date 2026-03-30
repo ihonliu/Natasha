@@ -29,6 +29,10 @@
 
 <br/>
 
+## clawhub
+
+`npx clawhub install csharp-dotnetcore-natasha`
+
 ## 使用
 
 引入包 `DotNetCore.Natasha.CSharp.Compiler` 编译单元主体
