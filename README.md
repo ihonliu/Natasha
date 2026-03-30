@@ -29,9 +29,9 @@
 
 <br/>
 
-## clawhub
+## ClawHub
 
-`npx clawhub install csharp-dotnetcore-natasha`
+安装 [Skill](https://clawhub.ai/skills?q=csharp-dotnetcore-natasha)： `npx clawhub install csharp-dotnetcore-natasha`
 
 ## 使用
 
